@@ -1,6 +1,6 @@
 Name: igi-test-ca
-Version: 3.0.3
-Release: 0%{?dist}
+Version: 4.0.0
+Release: 1%{?dist}
 Summary: A test CA for IGI
 
 Group: Applications/Internet
@@ -26,11 +26,9 @@ regression tests for the IGI middleware.
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
 
-install -m 644 -p %{name}* $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
-install -m 644 -p *.0 *.r0 *.signing_policy *.namespaces $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
-install -m 644 -p certs/custom-crls/* $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
+install -m 644 -p igi_test_ca* $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
+install -m 644 -p *.crl *.pem *.signing_policy *.namespaces $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 install -m 644 -p certs/*.pem $RPM_BUILD_ROOT%{_datadir}/%{name}
 install -m 644 -p certs/*.p12 $RPM_BUILD_ROOT%{_datadir}/%{name}
 
@@ -43,7 +41,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
-* Tue Nov 30 2022 Francesco Giacomini <francesco.giacomini@cnaf.infn.it> - 3.0.3-0
+* Tue Feb 25 2025 Enrico Vianello <enrico.vianello@cnaf.infn.it> - 4.0.0-1
+- Regenerate most used certificates and removed not used CAs
+
+* Wed Nov 30 2022 Francesco Giacomini <francesco.giacomini@cnaf.infn.it> - 3.0.3-0
 - Add correct CRL
 
 * Tue Nov 29 2022 Enrico Vianello <enrico.vianello at cnaf.infn.it> - 3.0.2-0
