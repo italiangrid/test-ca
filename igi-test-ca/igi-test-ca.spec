@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 4.0.0
+Version: 4.0.1
 Release: 1%{?dist}
 Summary: A test CA for IGI
 
@@ -28,7 +28,7 @@ mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 install -m 644 -p igi_test_ca* $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
-install -m 644 -p *.crl *.pem *.signing_policy *.namespaces $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
+install -m 644 -p *.0 *.r0 *.crl *.pem *.signing_policy *.namespaces $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 install -m 644 -p certs/*.pem $RPM_BUILD_ROOT%{_datadir}/%{name}
 install -m 644 -p certs/*.p12 $RPM_BUILD_ROOT%{_datadir}/%{name}
 
@@ -41,6 +41,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Thu Feb 27 2025 Enrico Vianello <enrico.vianello@cnaf.infn.it> - 4.0.1-1
+- Add missing .0 and .r0 files
+
 * Tue Feb 25 2025 Enrico Vianello <enrico.vianello@cnaf.infn.it> - 4.0.0-1
 - Regenerate most used certificates and removed not used CAs
 
