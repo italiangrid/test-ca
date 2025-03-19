@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 4.0.1
+Version: 5.0.0
 Release: 1%{?dist}
 Summary: A test CA for IGI
 
@@ -41,6 +41,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Wed Mar 19 2025 Enrico Vianello <enrico.vianello@cnaf.infn.it> - 5.0.0-1
+- Regenerate igi-test-ca
+
 * Thu Feb 27 2025 Enrico Vianello <enrico.vianello@cnaf.infn.it> - 4.0.1-1
 - Add missing .0 and .r0 files
 
